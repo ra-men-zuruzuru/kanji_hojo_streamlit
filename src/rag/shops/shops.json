@@ -1,0 +1,81 @@
+{
+    "shop": [
+        {
+            "id": "9999999999999999",
+            "name": "RESTAURANT 西洋料理店　WILDCAT HOUSE 山猫軒",
+            "name_kana": "れすとらん せいようりょうりてん　わいるどきゃっとはうす やまねこけん",
+            "address": "岩手県花巻市山奥区風の林道十三丁目幻楼館山猫軒",
+            "station_name": "花巻駅",
+            "ktai_coupon": 0,
+            "large_service_area": {
+                "code": "SS50",
+                "name": "東北"
+            },
+            "service_area": {
+                "code": "SA52",
+                "name": "岩手"
+            },
+            "large_area": {
+                "code": "Z052",
+                "name": "岩手"
+            },
+            "middle_area": {
+                "code": "Y916",
+                "name": "花巻・北上・奥州・一関"
+            },
+            "small_area": {
+                "code": "X992",
+                "name": "花巻"
+            },
+            "lat": 39.7600,
+            "lng": 141.1666,
+            "genre": {
+                "name": "洋食",
+                "catch": "お客様にぴったりの調理法で、一番おいしい姿に仕上げます。",
+                "code": "G005"
+            },
+            "sub_genre": {
+                "name": "洋食",
+                "code": "G005"
+            },
+            "budget": {
+                "code": "B004",
+                "name": "5001～7000円",
+                "average": "ランチ：￥1,200～￥2,200/ディナー：￥3,500～￥6,666"
+            },
+            "catch": "お客様にぴったりの調理法で、一番おいしい姿に仕上げます。",
+            "capacity": 2,
+            "access": "花巻駅からバスで30分/バス停から徒歩で10分以上",
+            "mobile_access": "花巻駅から10分以上",
+            "open": "いつでもお越しください。",
+            "close": "不定休",
+            "party_capacity": 2,
+            "other_memo": "",
+            "shop_detail_memo": "必ず少人数でお越しください。また固いものや尖ったものを身に着けてお越しは、ご遠慮ください。",
+            "budget_memo": "当店は現在、キャンペーン中のため全品タダ！終了する前にお早めにお越しください。",
+            "wedding": "なし",
+            "course": "あり",
+            "free_drink": "あり",
+            "free_food": "あり",
+            "private_room": "あり",
+            "horigotatsu": "あり",
+            "tatami": "なし",
+            "card": "利用不可",
+            "non_smoking": "全面禁煙",
+            "charter": "なし",
+            "parking": "なし",
+            "barrier_free": "なし",
+            "show": "なし",
+            "karaoke": "なし",
+            "band": "不可",
+            "tv": "なし",
+            "lunch": "あり",
+            "midnight": "営業している",
+            "english": "あり",
+            "pet": "不可",
+            "child": "お子様連れOK",
+            "wifi": "なし"
+            
+        }
+    ]
+}

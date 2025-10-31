@@ -45,5 +45,4 @@ class UserConditions:
     budget: str | None = None
     condition: str | None = None
     msg: str | None = None
-    thread_id: str | None = None
     is_condition_chat: bool | None = True

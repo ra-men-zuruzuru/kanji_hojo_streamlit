@@ -1,0 +1,312 @@
+{
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+        "genre": {
+            "type": "string",
+            "description": "お店ジャンルコード"
+        },
+        "budget": {
+            "type": "string",
+            "description": "ディナー予算コード"
+        },
+        "party_capacity": {
+            "type": "integer",
+            "description": "宴会収容人数（指定値以上）"
+        },
+        "order": {
+            "type": "integer",
+            "enum": [
+                1,
+                2,
+                3,
+                4
+            ],
+            "description": "1:かな/2:ジャンル/3:小エリア/4:おすすめ"
+        },
+        "format": {
+            "type": "string",
+            "enum": [
+                "json"
+            ],
+            "description": "レスポンス形式。json固定"
+        },
+        "service_area": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "SAコード（最大3件想定）"
+        },
+        "large_area": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "Zコード（最大3件想定）"
+        },
+        "middle_area": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "Yコード（最大5件想定）"
+        },
+        "small_area": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "Xコード（最大5件想定）"
+        },
+        "start": {
+            "type": "integer",
+            "minimum": 1,
+            "default": 1
+        },
+        "wifi": {
+            "type": "integer",
+            "enum": [
+                0,
+                1
+            ]
+        },
+        "wedding": {
+            "type": "integer",
+            "enum": [
+                0,
+                1
+            ]
+        },
+        "course": {
+            "type": "integer",
+            "enum": [
+                0,
+                1
+            ]
+        },
+        "free_drink": {
+            "type": "integer",
+            "enum": [
+                0,
+                1
+            ]
+        },
+        "free_food": {
+            "type": "integer",
+            "enum": [
+                0,
+                1
+            ]
+        },
+        "private_room": {
+            "type": "integer",
+            "enum": [
+                0,
+                1
+            ]
+        },
+        "horigotatsu": {
+            "type": "integer",
+            "enum": [
+                0,
+                1
+            ]
+        },
+        "tatami": {
+            "type": "integer",
+            "enum": [
+                0,
+                1
+            ]
+        },
+        "cocktail": {
+            "type": "integer",
+            "enum": [
+                0,
+                1
+            ]
+        },
+        "shochu": {
+            "type": "integer",
+            "enum": [
+                0,
+                1
+            ]
+        },
+        "sake": {
+            "type": "integer",
+            "enum": [
+                0,
+                1
+            ]
+        },
+        "wine": {
+            "type": "integer",
+            "enum": [
+                0,
+                1
+            ]
+        },
+        "card": {
+            "type": "integer",
+            "enum": [
+                0,
+                1
+            ]
+        },
+        "non_smoking": {
+            "type": "integer",
+            "enum": [
+                0,
+                1
+            ]
+        },
+        "charter": {
+            "type": "integer",
+            "enum": [
+                0,
+                1
+            ]
+        },
+        "ktai": {
+            "type": "integer",
+            "enum": [
+                0,
+                1
+            ]
+        },
+        "parking": {
+            "type": "integer",
+            "enum": [
+                0,
+                1
+            ]
+        },
+        "barrier_free": {
+            "type": "integer",
+            "enum": [
+                0,
+                1
+            ]
+        },
+        "sommelier": {
+            "type": "integer",
+            "enum": [
+                0,
+                1
+            ]
+        },
+        "night_view": {
+            "type": "integer",
+            "enum": [
+                0,
+                1
+            ]
+        },
+        "open_air": {
+            "type": "integer",
+            "enum": [
+                0,
+                1
+            ]
+        },
+        "show": {
+            "type": "integer",
+            "enum": [
+                0,
+                1
+            ]
+        },
+        "equipment": {
+            "type": "integer",
+            "enum": [
+                0,
+                1
+            ]
+        },
+        "karaoke": {
+            "type": "integer",
+            "enum": [
+                0,
+                1
+            ]
+        },
+        "band": {
+            "type": "integer",
+            "enum": [
+                0,
+                1
+            ]
+        },
+        "tv": {
+            "type": "integer",
+            "enum": [
+                0,
+                1
+            ]
+        },
+        "lunch": {
+            "type": "integer",
+            "enum": [
+                0,
+                1
+            ]
+        },
+        "midnight": {
+            "type": "integer",
+            "enum": [
+                0,
+                1
+            ]
+        },
+        "midnight_meal": {
+            "type": "integer",
+            "enum": [
+                0,
+                1
+            ]
+        },
+        "english": {
+            "type": "integer",
+            "enum": [
+                0,
+                1
+            ]
+        },
+        "pet": {
+            "type": "integer",
+            "enum": [
+                0,
+                1
+            ]
+        },
+        "child": {
+            "type": "integer",
+            "enum": [
+                0,
+                1
+            ]
+        }
+    },
+    "required": [
+        "format"
+    ],
+    "anyOf": [
+        {
+            "required": [
+                "large_area"
+            ]
+        },
+        {
+            "required": [
+                "middle_area"
+            ]
+        },
+        {
+            "required": [
+                "small_area"
+            ]
+        }
+    ]
+}
