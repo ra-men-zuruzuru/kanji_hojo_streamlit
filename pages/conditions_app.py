@@ -5,6 +5,7 @@ import streamlit as st
 from dataclasses import dataclass, asdict
 from typing import Optional, List
 from src.util.utils import genres,budgets,UserConditions
+from src.db.sql_runner import create_thread
 
 # ============ ページ設定 ============
 st.set_page_config(
@@ -93,23 +94,32 @@ if submitted:
         # dataclass 仕様に合わせて複数ジャンルは結合して1つの文字列に格納
         joined_genres = ",".join(genres_sel) if genres_sel else None
 
+        thread_id = create_thread(
+            f"{place},{joined_genres},{pop}人,{budget},{condition}"
+        )
+        print(thread_id)
+        
         uc = UserConditions(
             place=place.strip() if place else None,
             genre=joined_genres,
             pop=int(pop) if pop is not None else None,
             budget=budget or None,
             condition=condition or None,
-            msg=None,
-            thread_id=None,
+            msg=f"開催場所：{place},ジャンル：{joined_genres},参加人数：{pop},予算：{budget},詳細条件：{condition}",
             is_condition_chat=True
         )
 
         # セッションに保持
         st.session_state["user_conditions"] = uc
+        st.session_state["thread_id"] = thread_id
+        st.session_state["mode"] = "request"
 
-        st.success("条件を確定しました。下記が UserConditions の内容です。")
-        st.json(asdict(uc))
+        # 画面をapp.pyに遷移
+        st.switch_page("app.py")
 
-        st.caption("※ ジャンルをリストで保持したい場合は、UserConditions.genre を List[str] に変更し、結合処理を外してください。")
+        # st.success("条件を確定しました。下記が UserConditions の内容です。")
+        # st.json(asdict(uc))
+
+        # st.caption("※ ジャンルをリストで保持したい場合は、UserConditions.genre を List[str] に変更し、結合処理を外してください。")
 else:
     st.info("フォームに入力して「確定」を押してください。")
