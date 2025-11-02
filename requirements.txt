@@ -1,0 +1,47 @@
+# --- Core ---
+streamlit
+pandas
+pyarrow
+
+# --- LLM/LangChain stack ---
+langchain>=0.2,<0.3
+langchain-core
+langchain-community
+langchain-text-splitters
+langchain-groq
+langchain-huggingface
+langchain-chroma
+langchain-tavily
+langgraph
+langgraph-checkpoint
+langgraph-sdk
+langsmith
+
+openai
+groq
+huggingface-hub
+tiktoken             # 3.12推奨
+transformers
+tokenizers
+
+# --- VectorDB ---
+chromadb[hnswlib]    # ← chroma-hnswlib の代替（or hnswlib を単独追加でも可）
+
+# --- Utils ---
+python-dotenv
+SQLAlchemy
+tavily-python        # ← 明記しておくと依存解決が安定
+jsonpatch
+jsonpointer
+jsonschema
+jsonschema-specifications
+
+# --- Pydantic / typing ---
+pydantic
+pydantic-settings    # ← 修正
+typing_extensions
+typing-inspect       # ← 正しい方を残す
+
+# --- Optional / UI ---
+streamlit-card
+pymupdf              # ← pip名は小文字 'pymupdf' 推奨（= PyMuPDF）

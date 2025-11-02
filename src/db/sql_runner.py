@@ -3,18 +3,16 @@ import sqlite3, pathlib, uuid
 from pathlib import Path
 from contextlib import contextmanager
 
-BASE_DIR = Path(__file__).resolve().parent
-
-DB_PATH = BASE_DIR / "data" / "chat.db"
+ROOT_DIR = Path(__file__).resolve().parent.parent.parent
+DB_PATH = ROOT_DIR / "data" / "chat.db"
 
 
 @contextmanager
 def get_conn():
-    # ※ マルチスレ対応なら check_same_thread=False を検討
+    DB_PATH.parent.mkdir(parents=True, exist_ok=True)
     conn = sqlite3.connect(DB_PATH, isolation_level=None)  # autocommit
     conn.row_factory = sqlite3.Row
     try:
-        # 競合を減らすためWALに（1回呼ばれればOK）
         conn.execute("PRAGMA journal_mode=WAL;")
         conn.execute("PRAGMA synchronous=NORMAL;")
         yield conn
