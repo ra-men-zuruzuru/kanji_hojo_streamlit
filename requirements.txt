@@ -3,36 +3,36 @@ streamlit>=1.51
 pandas>=2.3
 pyarrow>=21
 
-# --- LangChain family (0.3 系に統一) ---
-langchain>=0.3.20,<0.4
-langchain-community>=0.3.20,<0.5
-langchain-core>=1.0,<2.0           # ← これを残すなら必ず 1.x に
-langchain-text-splitters>=0.3,<0.4  # （1.0系でもOKだが、0.3系に寄せると整合しやすい）
-langchain-groq>=1.0
-langchain-huggingface>=1.0
-langchain-chroma>=1.0
-langchain-tavily>=0.2.12            # ← これが langchain>=0.3.20 を要求
+# --- LangChain family: 0.3系で統一 ---
+langchain==0.3.27
+langchain-community==0.3.31       # <0.4 に固定（0.4系は core>=1.0 を要求して衝突）
+langchain-tavily==0.2.12          # tavily は langchain>=0.3.20 必須
+langchain-chroma==1.0.0
+langchain-groq==1.0.0
+langchain-huggingface==1.0.0
+# ※ langchain-core は書かない（自動解決に任せる）
 
-langgraph>=1.0
-langgraph-checkpoint>=3.0
-langgraph-sdk>=0.2
-langsmith>=0.1
+# --- LangGraph / Observability ---
+langgraph==1.0.2
+langgraph-checkpoint==3.0.0
+langgraph-sdk==0.2.9
+langsmith==0.1.147
 
-# --- Model & tools ---
-openai>=1.0
+# --- Models / Tools ---
+openai>=1.40
 groq>=0.33
-huggingface-hub>=1.0
+huggingface-hub>=1.0.1
 tiktoken>=0.7
-transformers>=4.44
-tokenizers>=0.19
+transformers>=4.57.1
+tokenizers>=0.22.1
 
 # --- Vector DB ---
-chromadb[hnswlib]>=1.3
+chromadb[hnswlib]>=1.3.0
 
 # --- Utils ---
 python-dotenv>=1.0
 SQLAlchemy>=2.0
-tavily-python>=0.7
+tavily-python>=0.7.12
 jsonpatch
 jsonpointer
 jsonschema
