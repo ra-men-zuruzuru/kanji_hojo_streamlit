@@ -1,2 +1,7 @@
 [client]
 showSidebarNavigation = false
+
+[server]
+# inotify を使わない（最も確実）
+fileWatcherType = "none"
+runOnSave = false
