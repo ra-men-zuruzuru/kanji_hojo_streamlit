@@ -61,10 +61,10 @@ class State(TypedDict):
     thread_id: str | None = None
 
 
-# # langsmith llmのフローを見られる
-# os.environ["LANGCHAIN_TRACING_V2"] = "true"
-# os.environ["LANGCHAIN_API_KEY"] = os.environ.get("LANGSMITH_API_KEY")
-# os.environ["LANGCHAIN_ENDPOINT"] = "https://api.smith.langchain.com"
+# langsmith llmのフローを見られる
+os.environ["LANGCHAIN_TRACING_V2"] = "true"
+os.environ["LANGCHAIN_API_KEY"] = os.environ.get("LANGSMITH_API_KEY")
+os.environ["LANGCHAIN_ENDPOINT"] = "https://api.smith.langchain.com"
 
 datetime_now = datetime.datetime.now()
 

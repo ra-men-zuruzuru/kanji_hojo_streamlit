@@ -59,6 +59,3 @@ Thumbs.db
 *.bin
 *.pickle
 *.pem
-*.db-wal
-*.db-shm
-*.db
