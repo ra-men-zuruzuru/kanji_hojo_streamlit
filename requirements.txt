@@ -1,12 +1,13 @@
 # --- Streamlit / Core ---
 streamlit==1.51.0
+numpy==1.26.4
 pandas==2.3.3
 pyarrow==21.0.0
 streamlit-card==1.0.2
 requests==2.32.5
 python-dotenv==1.1.1
 
-# --- LangChain family: 0.3 系に統一（langchain-coreは明記しない）---
+# --- LangChain family: 0.3 系（core<1.0）で統一 ---
 langchain==0.3.27
 langchain-community==0.3.31
 langchain-tavily==0.2.12
@@ -15,7 +16,7 @@ langchain-chroma==0.1.4
 langchain-huggingface==0.1.2
 langchain-text-splitters==0.3.11
 
-# --- LangGraph / Observability（手元の動作版に合わせる）---
+# --- LangGraph / Observability ---
 langgraph==0.2.76
 langgraph-checkpoint==2.1.2
 langgraph-sdk==0.1.74
@@ -29,10 +30,11 @@ transformers==4.45.2
 tokenizers==0.20.3
 tiktoken==0.12.0
 sentence-transformers==2.7.0
-torch==2.9.0         # Cloudで重い/不要なら外せます
+# ↓ Cloudが重い場合はコメントアウト可
+torch==2.9.0
 
 # --- Vector DB ---
-chromadb[hnswlib]==0.5.23   # ← 'chroma-hnswlib' は使わずこれでOK
+chromadb[hnswlib]==0.5.23
 
 # --- DB / JSON / typing ---
 SQLAlchemy==2.0.44
