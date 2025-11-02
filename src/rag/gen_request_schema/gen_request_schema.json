@@ -38,13 +38,6 @@
             },
             "description": "SAコード（最大3件想定）"
         },
-        "large_area": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "Zコード（最大3件想定）"
-        },
         "middle_area": {
             "type": "array",
             "items": {
@@ -293,11 +286,6 @@
         "format"
     ],
     "anyOf": [
-        {
-            "required": [
-                "large_area"
-            ]
-        },
         {
             "required": [
                 "middle_area"
