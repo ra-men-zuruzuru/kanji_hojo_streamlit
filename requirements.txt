@@ -8,7 +8,7 @@ langchain==0.3.27
 langchain-community==0.3.31       # <0.4 に固定（0.4系は core>=1.0 を要求して衝突）
 langchain-tavily==0.2.12          # tavily は langchain>=0.3.20 必須
 langchain-chroma>=0.1.0,<1.0.0
-langchain-groq==1.0.0
+langchain-groq==0.1.9
 langchain-huggingface==1.0.0
 # ※ langchain-core は書かない（自動解決に任せる）
 
