@@ -1,49 +1,49 @@
-# --- Core ---
-streamlit>=1.51
-pandas>=2.3
-pyarrow>=21
+# --- Streamlit / Core ---
+streamlit==1.51.0
+pandas==2.3.3
+pyarrow==21.0.0
+streamlit-card==1.0.2
+requests==2.32.5
+python-dotenv==1.1.1
 
-# --- LangChain family: 0.3系で統一 ---
+# --- LangChain family: 0.3 系に統一（langchain-coreは明記しない）---
 langchain==0.3.27
-langchain-community==0.3.31       # <0.4 に固定（0.4系は core>=1.0 を要求して衝突）
-langchain-tavily==0.2.12          # tavily は langchain>=0.3.20 必須
-langchain-chroma>=0.1.0,<1.0.0
-langchain-groq==0.1.9
-langchain-huggingface==1.0.0
-# ※ langchain-core は書かない（自動解決に任せる）
+langchain-community==0.3.31
+langchain-tavily==0.2.12
+langchain-groq==0.2.5
+langchain-chroma==0.1.4
+langchain-huggingface==0.1.2
+langchain-text-splitters==0.3.11
 
-# --- LangGraph / Observability ---
-langgraph==1.0.2
-langgraph-checkpoint==3.0.0
-langgraph-sdk==0.2.9
-langsmith==0.1.147
+# --- LangGraph / Observability（手元の動作版に合わせる）---
+langgraph==0.2.76
+langgraph-checkpoint==2.1.2
+langgraph-sdk==0.1.74
+langsmith==0.4.37
 
-# --- Models / Tools ---
-openai>=1.40
-groq>=0.33
-huggingface-hub>=1.0.1
-tiktoken>=0.7
-transformers>=4.57.1
-tokenizers>=0.22.1
+# --- Models / HF stack ---
+openai==1.109.1
+groq==0.33.0
+huggingface-hub==0.36.0
+transformers==4.45.2
+tokenizers==0.20.3
+tiktoken==0.12.0
+sentence-transformers==2.7.0
+torch==2.9.0         # Cloudで重い/不要なら外せます
 
 # --- Vector DB ---
-chromadb[hnswlib]>=1.3.0
+chromadb[hnswlib]==0.5.23   # ← 'chroma-hnswlib' は使わずこれでOK
 
-# --- Utils ---
-python-dotenv>=1.0
-SQLAlchemy>=2.0
-tavily-python>=0.7.12
-jsonpatch
-jsonpointer
-jsonschema
-jsonschema-specifications
+# --- DB / JSON / typing ---
+SQLAlchemy==2.0.44
+jsonschema==4.25.1
+jsonschema-specifications==2025.9.1
+jsonpatch==1.33
+jsonpointer==3.0.0
+pydantic==2.12.3
+pydantic-settings==2.11.0
+typing_extensions==4.15.0
+typing-inspect==0.9.0
 
-# --- Pydantic / typing ---
-pydantic>=2.6
-pydantic-settings>=2.4
-typing_extensions
-typing-inspect
-
-# --- UI / others ---
-streamlit-card
-pymupdf
+# --- PDF ---
+pymupdf==1.25.5
