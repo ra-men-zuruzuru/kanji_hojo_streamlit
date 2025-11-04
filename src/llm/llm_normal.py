@@ -82,37 +82,37 @@ search = TavilySearch(max_results=3)
 emb = HuggingFaceEmbeddings(model_name="intfloat/multilingual-e5-base")
 # 保存済みDBを開く
 vs = Chroma(
-    persist_directory=RAG_DATA,
+    persist_directory=str(RAG_DATA),
     embedding_function=emb,
     collection_name="hotpepper_api",
 )
 # エリアコードストア開く
 vs_area = Chroma(
-    persist_directory=RAG_DATA,
+    persist_directory=str(RAG_DATA),
     embedding_function=emb,
     collection_name="hotpepper_area",
 )
 # 予算ストア
 vs_budget = Chroma(
-    persist_directory=RAG_DATA,
+    persist_directory=str(RAG_DATA),
     embedding_function=emb,
     collection_name="hotpepper_budget",
 )
 # 特集ストア
 vs_special = Chroma(
-    persist_directory=RAG_DATA,
+    persist_directory=str(RAG_DATA),
     embedding_function=emb,
     collection_name="hotpepper_special",
 )
 # ジャンルストア
 vs_genre = Chroma(
-    persist_directory=RAG_DATA,
+    persist_directory=str(RAG_DATA),
     embedding_function=emb,
     collection_name="hotpepper_genre",
 )
 # クエリ生成ルールストア
 vs_option = Chroma(
-    persist_directory=RAG_DATA,
+    persist_directory=str(RAG_DATA),
     embedding_function=emb,
     collection_name="hotpepper_option",
 )
