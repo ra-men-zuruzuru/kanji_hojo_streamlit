@@ -1,5 +1,5 @@
 import sys
-import streamlit as st,os
+import streamlit as st, os
 import time
 import datetime
 import requests
@@ -31,6 +31,10 @@ from src.db.sql_runner import *
 
 
 load_dotenv()
+
+# srcディレクトリを指定
+ROOT_DIR = Path(__file__).resolve().parent.parent.parent
+RAG_DATA = ROOT_DIR / "rag" / "ragdata"
 
 
 class State(TypedDict):
@@ -78,37 +82,37 @@ search = TavilySearch(max_results=3)
 emb = HuggingFaceEmbeddings(model_name="intfloat/multilingual-e5-base")
 # 保存済みDBを開く
 vs = Chroma(
-    persist_directory="src\\rag\\ragdata",
+    persist_directory=RAG_DATA,
     embedding_function=emb,
     collection_name="hotpepper_api",
 )
 # エリアコードストア開く
 vs_area = Chroma(
-    persist_directory="src\\rag\\ragdata",
+    persist_directory=RAG_DATA,
     embedding_function=emb,
     collection_name="hotpepper_area",
 )
 # 予算ストア
 vs_budget = Chroma(
-    persist_directory="src\\rag\\ragdata",
+    persist_directory=RAG_DATA,
     embedding_function=emb,
     collection_name="hotpepper_budget",
 )
 # 特集ストア
 vs_special = Chroma(
-    persist_directory="src\\rag\\ragdata",
+    persist_directory=RAG_DATA,
     embedding_function=emb,
     collection_name="hotpepper_special",
 )
 # ジャンルストア
 vs_genre = Chroma(
-    persist_directory="src\\rag\\ragdata",
+    persist_directory=RAG_DATA,
     embedding_function=emb,
     collection_name="hotpepper_genre",
 )
 # クエリ生成ルールストア
 vs_option = Chroma(
-    persist_directory="src\\rag\\ragdata",
+    persist_directory=RAG_DATA,
     embedding_function=emb,
     collection_name="hotpepper_option",
 )
@@ -448,7 +452,7 @@ def response_node(state: State):
 
         sqlite_summary = get_memory_summary(thread_id=state["thread_id"])
         print(sqlite_summary)
-        
+
         try:
             res = chat_agent.invoke(
                 {
@@ -533,8 +537,6 @@ def stream_graph_updates(user_cond: UserConditions, thread_id: str, mode: str) -
     memory.save_context({"input": f"{human_message}"}, {"output": f"{ai_message}"})
     history = memory.load_memory_variables({})["history"]
 
-    update_memory_summary(
-        thread_id=thread_id, memory_summary=history[0].content
-    )
+    update_memory_summary(thread_id=thread_id, memory_summary=history[0].content)
 
     return ai_message
