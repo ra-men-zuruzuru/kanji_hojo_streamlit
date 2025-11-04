@@ -28,7 +28,7 @@ logs/
 
 # ---- フレームワークごとの設定 ----
 # FlaskやDjangoのマイグレーションファイル（DBの変更管理）
-*.sqlite3
+
 db.sqlite3
 migrations/
 instance/
@@ -51,7 +51,6 @@ build/
 .idea/
 
 # ベクトルストア
-rag/ragdata/
 
 # OS依存ファイル
 .DS_Store
