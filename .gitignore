@@ -65,4 +65,9 @@ Thumbs.db
 # 例外
 !src/
 !src/rag/
-!src/rag/ragdata/
+!src/rag/ragdata/**
+
+!src/rag/ragdata/**/*.bin
+!src/rag/ragdata/**/chroma.sqlite*
+!src/rag/ragdata/**/*.parquet
+!src/rag/ragdata/**/*.db
