@@ -37,7 +37,12 @@ def _format_label(t: dict) -> str:
     return f"{title}"
 
 
-st.set_page_config(page_title="AIチャット", page_icon="🤖", layout="wide")
+st.set_page_config(
+    page_title="AIチャット",
+    page_icon="🤖",
+    layout="wide",
+    initial_sidebar_state="expanded",
+)
 
 
 if thread_id:
