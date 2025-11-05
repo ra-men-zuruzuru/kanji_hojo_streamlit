@@ -51,6 +51,9 @@ build/
 .idea/
 
 # ベクトルストア
+/src/rag/ragdata/*
+!/src/rag/ragdata/
+!/src/rag/ragdata/**
 
 # OS依存ファイル
 .DS_Store
@@ -58,3 +61,8 @@ Thumbs.db
 *.bin
 *.pickle
 *.pem
+
+# 例外
+!src/
+!src/rag/
+!src/rag/ragdata/
