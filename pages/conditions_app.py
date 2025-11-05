@@ -11,7 +11,8 @@ from src.db.sql_runner import create_thread
 st.set_page_config(
     page_title="どんな店舗をお探しですか？",
     page_icon="🍽️",
-    layout="centered"
+    layout="centered",
+    initial_sidebar_state="collapsed",
 )
 
 st.title("どんな店舗をお探しですか？")
