@@ -3,6 +3,7 @@ import streamlit as st, os
 import time
 import datetime
 import requests
+import chromadb
 from pathlib import Path
 from src.llm.gen_request_query import main as gen_apirequest
 from dotenv import load_dotenv
@@ -34,8 +35,7 @@ load_dotenv()
 
 # srcディレクトリを指定
 ROOT_DIR = Path(__file__).resolve().parent.parent.parent
-RAG_DATA = ROOT_DIR / "rag" / "ragdata"
-
+RAG_DATA = ROOT_DIR / "src" / "rag" / "ragdata"
 
 class State(TypedDict):
     # メッセージのタイプは「リスト」です。アノテーション内の `add_messages`
@@ -81,11 +81,12 @@ search = TavilySearch(max_results=3)
 #  埋め込みモデル
 emb = HuggingFaceEmbeddings(model_name="intfloat/multilingual-e5-base")
 # 保存済みDBを開く
-vs = Chroma(
-    persist_directory=str(RAG_DATA),
-    embedding_function=emb,
-    collection_name="hotpepper_api",
-)
+# vs = Chroma(
+#     persist_directory=str(RAG_DATA),
+#     embedding_function=emb,
+#     collection_name="hotpepper_api",
+# )
+
 # エリアコードストア開く
 vs_area = Chroma(
     persist_directory=str(RAG_DATA),
@@ -157,7 +158,7 @@ llm_chat = ChatGroq(
     api_key=os.environ.get("GROQ_API_KEY"),
     model=LLM_Model.openai_gpt120,
     # llmの創造性。高いと創造性が高くなる。低いと論理的になる。
-    temperature=0.6,
+    temperature=0.3,
     # 応答の文字列の長さ制限
     max_tokens=None,
     # 応答を待機する時間
@@ -451,7 +452,6 @@ def response_node(state: State):
     elif state["mode"]["mode"] == "chat":
 
         sqlite_summary = get_memory_summary(thread_id=state["thread_id"])
-        print(sqlite_summary)
 
         try:
             res = chat_agent.invoke(
