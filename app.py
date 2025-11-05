@@ -120,24 +120,21 @@ else:
     #     with st.chat_message(m["role"]):
     #         st.markdown(m["content"])
 
-    data: pd.DataFrame | None = None
-
     user_message = st.chat_input("メッセージを入力...")
 
     if mode == "request":
-        user_message = "店舗の条件"
-        data = pd.DataFrame(
-            {
-                "": [
-                    user_cond.place,
-                    user_cond.genre,
-                    user_cond.pop,
-                    user_cond.budget,
-                    user_cond.condition,
-                ]
-            },
-            index=["場所", "ジャンル", "参加人数", "予算", "詳細な条件"],
-        ).astype(str)
+        
+        
+        user_message = f"""
+        \n
+        店舗の条件\n
+        会場の場所　　： {user_cond.place}\n
+        ジャンル　　　： {user_cond.genre}\n
+        参加人数　　　： {user_cond.pop}\n
+        予算　　　　　： {user_cond.budget}\n
+        こだわりの条件： {user_cond.condition if user_cond.condition else "なし"}\n
+        \n
+        """
         user_cond.msg = user_cond.msg
 
     elif mode == "chat":
@@ -150,8 +147,6 @@ else:
         # st.session_state.chat.append({"role": "user", "content": user_message})
         with st.chat_message("user"):
             st.markdown(user_message)
-            if data is not None:
-                st.table(data)
 
         # AIにtextを渡す
         ai_message = stream_graph_updates(
